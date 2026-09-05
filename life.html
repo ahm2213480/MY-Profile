@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahmad Nofal | My Life</title>
+
+    <!-- SEO -->
+    <meta name="description" content="The unserious side of Ahmad Nofal — favorite moments, friends, and pure chaos in photos." />
+    <meta name="author" content="Ahmad Nofal" />
+    <meta name="theme-color" content="#0f0f1a" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ahmad Nofal | My Life" />
+    <meta property="og:description" content="The unserious side of Ahmad Nofal — favorite moments, friends, and pure chaos in photos." />
+    <meta property="og:image" content="assets/img/ahmad.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤪</text></svg>" />
+
+    <!-- Fonts (Caveat = handwritten polaroid captions) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Cairo:wght@400;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/effects.css" />
+    <link rel="stylesheet" href="assets/css/life.css" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body class="dark">
+    <script>
+        /* Apply saved theme before first paint to avoid flashing */
+        if (localStorage.getItem("pref-theme") === "light") document.body.classList.add("light");
+    </script>
+
+    <!-- TOP BAR -->
+    <header class="top-bar">
+        <nav class="nav">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="projects.html" data-i18n="nav.projects">Projects</a>
+            <a href="library.html" data-i18n="nav.library">Library</a>
+            <a href="life.html" class="active" data-i18n="nav.life">My Life</a>
+        </nav>
+        <div class="toggles">
+            <button id="themeToggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+            <button id="langToggle">AR</button>
+        </div>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <h1 data-i18n="life.title">My Life</h1>
+        <p data-i18n="life.subtitle">A very unserious archive of my favorite moments.</p>
+        <div class="typing-line header-typing"><span class="typed-text" data-typed="life"></span><span class="type-cursor">|</span></div>
+    </section>
+
+    <!-- WIGGLY TAPE -->
+    <div class="tape" aria-hidden="true">
+        <div class="tape-track">
+            <span data-i18n="life.tape">Welcome to the chaos ✦ 0% formal ✦ certified good times ✦ no filters needed ✦ </span>
+            <span data-i18n="life.tape">Welcome to the chaos ✦ 0% formal ✦ certified good times ✦ no filters needed ✦ </span>
+        </div>
+    </div>
+
+    <!-- SHUFFLE BAR -->
+    <div class="shuffle-bar">
+        <button id="shuffleBtn" class="shuffle-btn">🎲 <span data-i18n="life.shuffle">Shuffle the chaos</span></button>
+        <span class="shuffle-hint" data-i18n="life.hint">Click any photo to zoom 👀</span>
+    </div>
+
+    <!-- POLAROID WALL -->
+    <section class="life-wall" id="lifeWall">
+        <!-- floating background stickers -->
+        <span class="sticker" style="left:4%;  top:16%; --sd:6s;   --sdel:.2s;  --sz:2.4rem;">🤪</span>
+        <span class="sticker" style="left:12%; top:64%; --sd:7.5s; --sdel:1.2s; --sz:2rem;">😂</span>
+        <span class="sticker" style="left:90%; top:22%; --sd:6.4s; --sdel:.7s;  --sz:2.2rem;">⚽</span>
+        <span class="sticker" style="left:86%; top:70%; --sd:8s;   --sdel:2s;   --sz:2.1rem;">☕</span>
+        <span class="sticker" style="left:48%; top:6%;  --sd:7s;   --sdel:1.6s; --sz:2.3rem;">🎓</span>
+        <span class="sticker" style="left:28%; top:88%; --sd:6.8s; --sdel:.9s;  --sz:2rem;">💻</span>
+        <span class="sticker" style="left:70%; top:90%; --sd:7.2s; --sdel:.4s;  --sz:2rem;">❤️</span>
+        <span class="sticker" style="left:60%; top:42%; --sd:8.2s; --sdel:1.1s; --sz:1.9rem;">📸</span>
+
+        <div class="p-slot size-m">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/childhood-ceo.jpeg" alt="Childhood photo of Ahmad" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">👶</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c1">CEO of everything, age 6</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-s">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/little-me.jpeg" alt="Ahmad as a kid in an orange jacket" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">🧡</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c2">Orange jacket, zero fear</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-l">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/graduation-day.jpeg" alt="Graduation day with friends" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">🎓</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c3">Graduated. Serious for exactly one day</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-m">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/elevator-shoot.jpeg" alt="Elevator selfie with a friend" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">🛗</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c4">Elevator photoshoot — budget: 0</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-s">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/mirror-moment.jpeg" alt="Mirror selfie with a friend" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">🪞</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c5">Us vs. the mirror, round 47</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-l">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/serious-meeting.jpeg" alt="Lego figures and coffee on a table" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">🧱</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c6">Very serious business meeting</figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="p-slot size-m">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/unforgettable-night.jpeg" alt="Volunteers night with candles" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">🕯️</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c7">A night we'll never forget </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-s">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/the-squad.jpeg" alt="Volunteering team group photo" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">🦸</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c8">The squad that does everything</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-l">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/ncss-mode.jpeg" alt="Wearing NCSS party glasses" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">🤓</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c9">Nerd mode: ACTIVATED</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-m">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/sunny-pov.jpeg" alt="Low angle selfie under a blue sky" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">☀️</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c10">POV: the sun chose violence</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-s">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/work-mode.jpeg" alt="Selfie at the office desk" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">💼</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c11">Work mode… sort of</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-l">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/break-champions.jpeg" alt="Friends sitting on a bench" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">🏆</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c12">Break time world champions</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-m">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/3.jpeg" alt="A moment from my life" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">✅</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c13">Certified moment </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-s">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/4.jpeg" alt="A moment from my life" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">😎</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c14">Main character energy </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-l">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/7.jpeg" alt="A moment from my life" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">✨</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c15">Core memory unlocked </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-m">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/11.jpeg" alt="A moment from my life" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">🤷</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c16">No context needed </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-s">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/14.jpeg" alt="A moment from my life" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">🔥</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c17">Peak content </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-l">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/19.jpeg" alt="A moment from my life" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">🌚</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c18">Just vibes </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-s">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/21.jpeg" alt="A moment from my life" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">📼</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c19">Archive material </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-m">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/23.jpeg" alt="A moment from my life" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">💾</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c20">Storage full, worth it </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-l">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/020.jpeg" alt="A moment from my life" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">🙈</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c21">Unsupervised content </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="p-slot size-m">
+            <div class="p-float">
+                <figure class="polaroid" tabindex="0">
+                    <img class="p-img" src="assets/img/life/just%20me.jpeg" alt="Just me" loading="lazy" onerror="this.closest('.polaroid').classList.add('missing')" />
+                    <div class="p-fallback"><span class="p-fb-emoji">🕶️</span><span class="p-fb-text" data-i18n="life.missing">This photo is still hiding…</span></div>
+                    <figcaption class="p-cap" data-i18n="life.c22">Just me </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <p class="more-note" data-i18n="life.more">More chaos coming soon…</p>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+        <button class="lb-close" aria-label="Close">&times;</button>
+        <figure>
+            <img id="lbImg" alt="" />
+            <figcaption id="lbCap"></figcaption>
+        </figure>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p data-i18n="footer.rights">© 2026 Ahmad Nofal</p>
+        <p data-i18n="footer.location">📍 Amman, Jordan</p>
+        <div class="social">
+            <a href="https://github.com/ahm2213480" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ahmad-nofal-21885a234/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:ahmadnofal550@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+962789682412" aria-label="Phone"><i class="fas fa-phone"></i></a>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/life.js"></script>
+</body>
+
+</html>

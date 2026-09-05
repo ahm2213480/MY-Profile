@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahmad Nofal | Full-Stack Developer</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Ahmad Nofal — Computer Science graduate and Full-Stack developer from Amman, Jordan. Building scalable web apps, simulations, and data-driven systems." />
+    <meta name="keywords" content="Ahmad Nofal, Full-Stack Developer, Web Developer, Jordan, PHP, .NET, Angular, Portfolio" />
+    <meta name="author" content="Ahmad Nofal" />
+    <meta name="theme-color" content="#0f0f1a" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ahmad Nofal | Full-Stack Developer" />
+    <meta property="og:description" content="CS graduate & Full-Stack developer from Amman, Jordan — building scalable web apps, simulations, and data-driven systems." />
+    <meta property="og:image" content="assets/img/ahmad.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/effects.css" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body class="dark">
+    <script>
+        /* Apply saved theme before first paint to avoid flashing */
+        if (localStorage.getItem("pref-theme") === "light") document.body.classList.add("light");
+    </script>
+
+    <!-- TOP BAR -->
+    <header class="top-bar">
+        <nav class="nav">
+            <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+            <a href="projects.html" data-i18n="nav.projects">Projects</a>
+            <a href="library.html" data-i18n="nav.library">Library</a>
+            <a href="life.html" data-i18n="nav.life">My Life</a>
+        </nav>
+        <div class="toggles">
+            <button id="themeToggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+            <button id="langToggle">AR</button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <h1 data-i18n="hero.title">Hi, I’m Ahmad </h1>
+                <div class="typing-line"><span class="typed-text" id="typedText" data-typed="roles"></span><span class="type-cursor">|</span></div>
+                <p data-i18n="hero.subtitle">
+                    CS graduate who loves building scalable web apps, simulations, and systems that make sense.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="projects.html" class="btn" data-i18n="hero.projectsBtn">View Projects</a>
+                    <a href="library.html" class="btn secondary" data-i18n="hero.libraryBtn">Explore Library</a>
+                    <a href="assets/Ahmad-Nofal-CV.pdf" download class="btn secondary"><i class="fas fa-download"></i> <span data-i18n="hero.download">Download CV</span></a>
+                </div>
+
+                <div class="hero-contact">
+                    <a href="tel:+962789682412"><i class="fas fa-phone"></i> +962 78 968 2412</a>
+                    <a href="mailto:ahmadnofal550@gmail.com"><i class="fas fa-envelope"></i> ahmadnofal550@gmail.com</a>
+                    <span><i class="fas fa-map-marker-alt"></i> Amman, Jordan</span>
+                </div>
+            </div>
+
+            <div class="hero-photo">
+                <div class="photo-frame">
+                    <img src="assets/img/ahmad.jpg" alt="Ahmad Nofal — Graduation" />
+                </div>
+                <div class="badge badge-1"><i class="fas fa-graduation-cap"></i> <span data-i18n="hero.badge1">B.Sc. Computer Science</span></div>
+                <div class="badge badge-2"><i class="fas fa-code"></i> <span data-i18n="hero.badge2">.NET / Angular Trainee</span></div>
+                <div class="badge badge-3"><i class="fas fa-map-marker-alt"></i> <span data-i18n="hero.badge3">Amman, Jordan</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about">
+        <h2 class="reveal" data-i18n="about.title">About Me</h2>
+        <p class="about-text reveal" data-i18n="about.text">Motivated Computer Science graduate with expertise in front-end and full-stack development. I enjoy building scalable web applications, integrating APIs, and turning data into clear, user-friendly systems.</p>
+
+        <div class="about-facts reveal">
+            <div class="fact"><i class="fas fa-graduation-cap"></i> <span data-i18n="about.edu">B.Sc. in Computer Science — University of Jordan</span></div>
+            <div class="fact"><i class="fas fa-briefcase"></i> <span data-i18n="about.work">Full Stack Trainee (.NET / Angular) @ Dalil</span></div>
+            <div class="fact"><i class="fas fa-map-marker-alt"></i> <span>Amman, Jordan</span></div>
+        </div>
+
+        <div class="skills reveal">
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">React.js</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">PHP</span>
+            <span class="chip">ASP.NET Core</span>
+            <span class="chip">C++</span>
+            <span class="chip">Java</span>
+            <span class="chip">Python</span>
+            <span class="chip">C#</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">SQL / NoSQL</span>
+            <span class="chip">Git &amp; GitHub</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">Excel (Advanced)</span>
+        </div>
+    </section>
+
+    <!-- INTERESTS -->
+    <section class="interests">
+        <h2 data-i18n="interests.title">What I’m into</h2>
+
+        <div class="cards">
+            <div class="card reveal" data-i18n="interests.card1">🧪 Simulations</div>
+            <div class="card reveal" data-i18n="interests.card2">🌐 Web Systems</div>
+            <div class="card reveal" data-i18n="interests.card3">🧠 Algorithms</div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="experience">
+        <h2 data-i18n="exp.title">Experience</h2>
+
+        <div class="timeline">
+            <div class="t-item reveal">
+                <div class="t-dot"></div>
+                <div class="t-card">
+                    <h3 data-i18n="exp.e1.title">Full Stack Web Development Trainee (.NET / Angular)</h3>
+                    <span class="t-org" data-i18n="exp.e1.org">Dalil · Jul 2026 – Present</span>
+                    <p data-i18n="exp.e1.desc">Building backend services with C# and ASP.NET Core, Angular frontends, PostgreSQL databases, and RESTful APIs.</p>
+                </div>
+            </div>
+
+            <div class="t-item reveal">
+                <div class="t-dot"></div>
+                <div class="t-card">
+                    <h3 data-i18n="exp.e2.title">Digiskills MEL Trainee</h3>
+                    <span class="t-org" data-i18n="exp.e2.org">Integrated International · Apr 2026 – Jun 2026</span>
+                    <p data-i18n="exp.e2.desc">MEL practices, digital surveys with XLSForm and KoboToolbox, sampling methods, and advanced Excel analysis.</p>
+                </div>
+            </div>
+
+            <div class="t-item reveal">
+                <div class="t-dot"></div>
+                <div class="t-card">
+                    <h3 data-i18n="exp.e3.title">Mendix Rapid Developer Trainee</h3>
+                    <span class="t-org" data-i18n="exp.e3.org">Polaris · Nov 2025 – Jan 2026</span>
+                    <p data-i18n="exp.e3.desc">Built low-code applications with microflows, page design, and data models.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="certs-title" data-i18n="certs.title">Certifications</h2>
+        <div class="certs">
+            <div class="cert reveal"><i class="fas fa-certificate"></i> <span data-i18n="certs.c1">Full Stack Development — Udemy · 2026</span></div>
+            <div class="cert reveal"><i class="fas fa-cloud"></i> <span data-i18n="certs.c2">Cloud Foundations — AWS Academy · 2025</span></div>
+            <div class="cert reveal"><i class="fas fa-robot"></i> <span data-i18n="certs.c3">Generative AI Foundations — AWS Academy · 2025</span></div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="stat reveal">
+            <h3>B.Sc.</h3>
+            <p data-i18n="stats.degree">Computer Science</p>
+        </div>
+        <div class="stat reveal">
+            <h3 class="count" data-target="3">3</h3>
+            <p data-i18n="stats.internships">Traineeships</p>
+        </div>
+        <div class="stat reveal">
+            <h3 class="count" data-target="15" data-suffix="+">15+</h3>
+            <p data-i18n="stats.tech">Technologies</p>
+        </div>
+        <div class="stat reveal">
+            <h3>∞</h3>
+            <p data-i18n="stats.coffee">Coffee ☕</p>
+        </div>
+    </section>
+
+    <!-- GITHUB -->
+    <section class="github">
+        <h2 data-i18n="gh.title">GitHub Activity</h2>
+        <div class="gh-cards">
+            <div class="gh-card reveal"><i class="fab fa-github"></i><h3 id="ghRepos">—</h3><p data-i18n="gh.repos">Public Repos</p></div>
+            <div class="gh-card reveal"><i class="fas fa-users"></i><h3 id="ghFollowers">—</h3><p data-i18n="gh.followers">Followers</p></div>
+            <div class="gh-card reveal"><i class="fas fa-star"></i><h3 id="ghStars">—</h3><p data-i18n="gh.stars">Total Stars</p></div>
+        </div>
+        <a href="https://github.com/ahm2213480" target="_blank" rel="noopener" class="btn secondary gh-link"><i class="fab fa-github"></i> <span data-i18n="gh.visit">Visit My GitHub</span></a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p data-i18n="footer.rights">© 2026 Ahmad Nofal</p>
+        <p data-i18n="footer.location">📍 Amman, Jordan</p>
+        <div class="social">
+            <a href="https://github.com/ahm2213480" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ahmad-nofal-21885a234/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:ahmadnofal550@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+962789682412" aria-label="Phone"><i class="fas fa-phone"></i></a>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

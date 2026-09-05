@@ -1,0 +1,212 @@
+/* ============================================================
+   My Profile — effects.css
+   Animated background + entrance & hover motion effects.
+   Loaded after style.css so it layers on top of it.
+   ============================================================ */
+
+/* ===== ANIMATED PAGE BACKGROUND — drifting glow orbs ===== */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(90px);
+    opacity: 0.5;
+    will-change: transform;
+}
+
+body::before {
+    width: 46vmax;
+    height: 46vmax;
+    top: -14vmax;
+    inset-inline-start: -12vmax;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, rgba(124, 58, 237, 0) 65%);
+    animation: orb-drift-a 26s ease-in-out infinite alternate;
+}
+
+body::after {
+    width: 40vmax;
+    height: 40vmax;
+    bottom: -14vmax;
+    inset-inline-end: -10vmax;
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.35) 0%, rgba(79, 70, 229, 0) 65%);
+    animation: orb-drift-b 32s ease-in-out infinite alternate;
+}
+
+body.light::before {
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, rgba(124, 58, 237, 0) 65%);
+    opacity: 0.6;
+}
+
+body.light::after {
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.16) 0%, rgba(79, 70, 229, 0) 65%);
+    opacity: 0.6;
+}
+
+@keyframes orb-drift-a {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    50%  { transform: translate3d(7vmax, 5vmax, 0) scale(1.15); }
+    100% { transform: translate3d(3vmax, 10vmax, 0) scale(0.92); }
+}
+
+@keyframes orb-drift-b {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    50%  { transform: translate3d(-8vmax, -5vmax, 0) scale(1.1); }
+    100% { transform: translate3d(-4vmax, -10vmax, 0) scale(0.9); }
+}
+
+/* ===== ENTRANCE ANIMATIONS ===== */
+@keyframes rise {
+    from { opacity: 0; transform: translateY(26px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop-in {
+    from { opacity: 0; transform: scale(0.7); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* Hero text slides up, one line after another */
+.hero-text > * {
+    animation: rise 0.7s cubic-bezier(0.22, 0.9, 0.3, 1.15) both;
+}
+
+.hero-text > *:nth-child(2) { animation-delay: 0.12s; }
+.hero-text > *:nth-child(3) { animation-delay: 0.22s; }
+.hero-text > *:nth-child(4) { animation-delay: 0.32s; }
+.hero-text > *:nth-child(5) { animation-delay: 0.42s; }
+
+/* Photo pops in next to the text */
+.hero-photo {
+    animation: pop-in 0.8s cubic-bezier(0.34, 1.35, 0.44, 1) 0.15s both;
+}
+
+/* ===== GRADIENT TITLES WITH SLOW SHIMMER ===== */
+.hero h1,
+.page-header h1 {
+    background: var(--grad);
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.hero h1 {
+    animation: rise 0.7s cubic-bezier(0.22, 0.9, 0.3, 1.15) both,
+               shimmer 8s linear infinite;
+}
+
+/* Sub-page headers get the same look as the home hero */
+.page-header h1 {
+    animation: rise 0.7s cubic-bezier(0.22, 0.9, 0.3, 1.15) both,
+               shimmer 8s linear infinite;
+}
+
+.page-header p {
+    animation: rise 0.7s cubic-bezier(0.22, 0.9, 0.3, 1.15) 0.12s both;
+}
+
+.page-header .typing-line {
+    margin-top: 6px;
+    font-size: 1.05rem;
+    animation: rise 0.7s cubic-bezier(0.22, 0.9, 0.3, 1.15) 0.22s both;
+}
+
+@keyframes shimmer {
+    to { background-position: 220% center; }
+}
+
+/* ===== BUTTON SHINE SWEEP ===== */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.btn:hover::after {
+    left: 130%;
+}
+
+/* ===== CARD / CHIP / CERT MICRO-INTERACTIONS ===== */
+.skills .chip {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skills .chip:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 10px 22px rgba(124, 58, 237, 0.28);
+}
+
+.project-card:hover .card-icon,
+.book-card:hover .card-icon {
+    animation: icon-bounce 0.55s ease;
+}
+
+@keyframes icon-bounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    40%      { transform: translateY(-9px) scale(1.18); }
+}
+
+/* Gradient bar sweeping in on top of book cards */
+.book-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.book-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    inset-inline: 0;
+    height: 4px;
+    background: var(--grad);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.book-card:hover::before {
+    transform: scaleX(1);
+}
+
+.cert i {
+    transition: transform 0.3s ease;
+}
+
+.cert:hover i {
+    transform: rotate(-10deg) scale(1.2);
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after,
+    .hero-text > *,
+    .hero-photo,
+    .hero h1,
+    .page-header h1,
+    .page-header p,
+    .page-header .typing-line,
+    .btn::after,
+    .project-card:hover .card-icon,
+    .book-card:hover .card-icon,
+    .book-card::before {
+        animation: none !important;
+        transition: none !important;
+    }
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahmad Nofal | Projects</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Projects by Ahmad Nofal — Life Bank blood-bank management system, C++ clock simulation, and a hand-built personal portfolio." />
+    <meta name="author" content="Ahmad Nofal" />
+    <meta name="theme-color" content="#0f0f1a" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ahmad Nofal | Projects" />
+    <meta property="og:description" content="Life Bank blood-bank system, C++ clock simulation, and more — by Ahmad Nofal." />
+    <meta property="og:image" content="assets/img/ahmad.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/effects.css" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body class="dark">
+    <script>
+        /* Apply saved theme before first paint to avoid flashing */
+        if (localStorage.getItem("pref-theme") === "light") document.body.classList.add("light");
+    </script>
+
+    <!-- TOP BAR -->
+    <header class="top-bar">
+        <nav class="nav">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="projects.html" class="active" data-i18n="nav.projects">Projects</a>
+            <a href="library.html" data-i18n="nav.library">Library</a>
+            <a href="life.html" data-i18n="nav.life">My Life</a>
+        </nav>
+        <div class="toggles">
+            <button id="themeToggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+            <button id="langToggle">AR</button>
+        </div>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <h1 data-i18n="projects.title">My Projects</h1>
+        <p data-i18n="projects.subtitle">Things I’ve built for learning, for fun, and for the résumé.</p>
+        <div class="typing-line header-typing"><span class="typed-text" data-typed="projects"></span><span class="type-cursor">|</span></div>
+    </section>
+
+    <!-- PROJECTS GRID -->
+    <section class="grid-section">
+        <div class="cards-grid">
+
+            <article class="project-card featured reveal">
+                <span class="badge-featured" data-i18n="p1.badge">Featured Project</span>
+                <div class="card-icon">🩸</div>
+                <h3 data-i18n="p1.title">Life Bank — Blood Bank System</h3>
+                <p data-i18n="p1.desc">A full-stack blood donation management system connecting donors, patients, hospitals, and admins.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-circle-check"></i> <span data-i18n="p1.f1">Four roles: Donor, Patient, Hospital &amp; Admin</span></li>
+                    <li><i class="fas fa-circle-check"></i> <span data-i18n="p1.f2">Blood request workflow — approve, reject, complete</span></li>
+                    <li><i class="fas fa-circle-check"></i> <span data-i18n="p1.f3">Donation tracking &amp; medical eligibility forms</span></li>
+                    <li><i class="fas fa-circle-check"></i> <span data-i18n="p1.f4">Campaigns, notifications &amp; support tickets</span></li>
+                    <li><i class="fas fa-circle-check"></i> <span data-i18n="p1.f5">Admin dashboard with live statistics</span></li>
+                </ul>
+                <div class="tags"><span>PHP</span><span>MySQL</span><span>JavaScript</span><span>HTML/CSS</span></div>
+                <div class="card-links">
+                    <!-- TODO: replace with the Life Bank repo URL if you have one -->
+                    <a href="https://github.com/ahm2213480" target="_blank" rel="noopener" class="btn small"><i class="fab fa-github"></i> <span data-i18n="card.code">Code</span></a>
+                    <a href="https://lifebank.kesug.com/home/index.php?i=1" target="_blank" rel="noopener" class="btn small secondary"><i class="fas fa-arrow-up-right-from-square"></i> <span data-i18n="card.live">Live Demo</span></a>
+                </div>
+            </article>
+
+            <article class="project-card reveal">
+                <div class="card-icon">🕰️</div>
+                <h3 data-i18n="p2.title">Clock Simulation</h3>
+                <p data-i18n="p2.desc">A C++ clock simulator built on circular doubly linked lists, with Roman numeral display and AM/PM handling.</p>
+                <div class="tags"><span>C++</span><span>OOP</span><span>Data Structures</span></div>
+                <div class="card-links">
+                    <a href="https://github.com/ahm2213480" target="_blank" rel="noopener" class="btn small"><i class="fab fa-github"></i> <span data-i18n="card.code">Code</span></a>
+                </div>
+            </article>
+
+            <article class="project-card reveal">
+                <div class="card-icon">🌐</div>
+                <h3 data-i18n="p3.title">Personal Portfolio</h3>
+                <p data-i18n="p3.desc">This website — designed and built from scratch with vanilla HTML, CSS, and JavaScript.</p>
+                <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                <div class="card-links">
+                    <a href="https://github.com/ahm2213480" target="_blank" rel="noopener" class="btn small"><i class="fab fa-github"></i> <span data-i18n="card.code">Code</span></a>
+                    <a href="index.html" class="btn small secondary"><i class="fas fa-arrow-up-right-from-square"></i> <span data-i18n="card.live">Live Demo</span></a>
+                </div>
+            </article>
+
+
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p data-i18n="footer.rights">© 2026 Ahmad Nofal</p>
+        <p data-i18n="footer.location">📍 Amman, Jordan</p>
+        <div class="social">
+            <a href="https://github.com/ahm2213480" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ahmad-nofal-21885a234/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:ahmadnofal550@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+962789682412" aria-label="Phone"><i class="fas fa-phone"></i></a>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

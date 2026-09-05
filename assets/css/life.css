@@ -1,0 +1,330 @@
+/* ============================================================
+   My Profile — life.css
+   The "My Life" page: a chaotic, living polaroid wall.
+   Loaded after style.css / effects.css.
+   ============================================================ */
+
+/* ===== WIGGLY MARQUEE TAPE ===== */
+.tape {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    margin: 6px auto 0;
+    padding: 11px 0;
+    background: var(--grad);
+    transform: rotate(-1.1deg);
+    box-shadow: 0 12px 34px rgba(124, 58, 237, 0.3);
+}
+
+.tape-track {
+    display: flex;
+    width: max-content;
+    animation: tape-scroll 24s linear infinite;
+}
+
+.tape-track span {
+    white-space: nowrap;
+    padding-inline-end: 48px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+@keyframes tape-scroll {
+    to { transform: translateX(-50%); }
+}
+
+/* Arabic reading direction: scroll the other way so it stays seamless */
+[dir="rtl"] .tape-track { animation-name: tape-scroll-rtl; }
+
+@keyframes tape-scroll-rtl {
+    to { transform: translateX(50%); }
+}
+
+/* ===== SHUFFLE BAR ===== */
+.shuffle-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 26px 10% 0;
+}
+
+.shuffle-btn {
+    border: none;
+    cursor: pointer;
+    padding: 13px 28px;
+    border-radius: 30px;
+    background: var(--grad);
+    color: #fff;
+    font-size: 1.02rem;
+    font-weight: 700;
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.shuffle-btn:hover {
+    transform: rotate(-3deg) scale(1.06);
+    box-shadow: 0 16px 40px rgba(124, 58, 237, 0.45);
+}
+
+.shuffle-btn:active { transform: scale(0.94); }
+
+.shuffle-btn.boing { animation: boing 0.55s cubic-bezier(0.34, 1.56, 0.44, 1); }
+
+@keyframes boing {
+    0%   { transform: rotate(0) scale(1); }
+    35%  { transform: rotate(-9deg) scale(1.18); }
+    70%  { transform: rotate(6deg) scale(0.94); }
+    100% { transform: rotate(0) scale(1); }
+}
+
+.shuffle-hint { color: var(--muted); font-size: 0.95rem; }
+
+/* ===== POLAROID WALL ===== */
+.life-wall {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 34px 28px;
+    padding: 44px 10% 30px;
+}
+
+.p-slot {
+    position: relative;
+    z-index: 1;
+    margin-top: var(--lift, 0px);
+    transition: margin-top 0.6s cubic-bezier(0.34, 1.3, 0.44, 1);
+    animation: slot-drop 0.75s cubic-bezier(0.3, 1.35, 0.44, 1) var(--enter-delay, 0s) both;
+}
+
+/* hovered / focused card jumps above its neighbours */
+.p-slot:hover,
+.p-slot:focus-within { z-index: 20; }
+
+@keyframes slot-drop {
+    from { opacity: 0; transform: translateY(-130px) rotate(9deg); }
+    60%  { opacity: 1; }
+    to   { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+/* every card bobs with its own rhythm (vars randomized by life.js) */
+.p-float {
+    animation: p-bob var(--dur, 6s) ease-in-out var(--delay, 0s) infinite;
+}
+
+@keyframes p-bob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-13px); }
+}
+
+/* random sizes (classes are mixed in the HTML) */
+.size-s { --w: 152px; }
+.size-m { --w: 200px; }
+.size-l { --w: 254px; }
+
+.polaroid {
+    position: relative;
+    width: var(--w, 200px);
+    margin: 0;
+    padding: 10px 10px 6px;
+    background: #fdfdfa;
+    border-radius: 6px;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+    transform: rotate(var(--tilt, 0deg));
+    transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.44, 1), box-shadow 0.35s ease;
+    cursor: zoom-in;
+    outline: none;
+}
+
+/* washi tape pinning the photo to the wall */
+.polaroid::before {
+    content: "";
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    width: 92px;
+    height: 26px;
+    background: rgba(252, 244, 186, 0.62);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
+    transform: translateX(-50%) rotate(var(--tape-rot, -3deg));
+    z-index: 2;
+}
+
+.polaroid:hover,
+.polaroid:focus-visible {
+    transform: rotate(0deg) translateY(-10px) scale(1.07);
+    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.5);
+}
+
+.polaroid:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.p-img {
+    display: block;
+    width: 100%;
+    height: calc(var(--w, 200px) * 1.02);
+    object-fit: cover;
+    border-radius: 3px;
+    background: #e8e8e0;
+}
+
+/* handwritten caption (Caveat for Latin, Cairo takes over for Arabic) */
+.p-cap {
+    padding: 9px 2px 7px;
+    text-align: center;
+    line-height: 1.22;
+    font-family: "Caveat", "Cairo", cursive;
+    font-size: 1.42rem;
+    font-weight: 700;
+    color: #2c2c3c;
+}
+
+/* friendly placeholder while a photo file is missing */
+.p-fallback {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: calc(var(--w, 200px) * 1.02);
+    border-radius: 3px;
+    background: repeating-linear-gradient(45deg, #f2f2ea, #f2f2ea 12px, #ececdf 12px, #ececdf 24px);
+    color: #6a6a7a;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.p-fb-emoji { font-size: 2.2rem; }
+
+.polaroid.missing { outline: 2px dashed rgba(124, 58, 237, 0.45); outline-offset: -7px; }
+.polaroid.missing .p-img { display: none; }
+.polaroid.missing .p-fallback { display: flex; }
+
+/* ===== FLOATING BACKGROUND STICKERS ===== */
+.sticker {
+    position: absolute;
+    z-index: 0;
+    font-size: var(--sz, 2rem);
+    opacity: 0.32;
+    pointer-events: none;
+    user-select: none;
+    animation: sticker-float var(--sd, 7s) ease-in-out var(--sdel, 0s) infinite;
+}
+
+@keyframes sticker-float {
+    0%, 100% { transform: translateY(0) rotate(-9deg); }
+    50%      { transform: translateY(-30px) rotate(11deg); }
+}
+
+/* ===== MORE NOTE ===== */
+.more-note {
+    text-align: center;
+    padding: 18px 10% 70px;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8, 8, 18, 0.86);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.lightbox.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.lightbox figure {
+    max-width: min(86vw, 780px);
+    margin: 0;
+    transform: scale(0.85) rotate(-2.5deg);
+    transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.44, 1);
+}
+
+.lightbox.open figure { transform: scale(1) rotate(0deg); }
+
+.lightbox img {
+    display: block;
+    width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox figcaption {
+    padding-top: 14px;
+    text-align: center;
+    color: #fff;
+    font-family: "Caveat", "Cairo", cursive;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.lb-close {
+    position: absolute;
+    top: 14px;
+    inset-inline-end: 26px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.6rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.lb-close:hover { transform: rotate(90deg) scale(1.15); }
+
+/* ===== CONFETTI (spawned by life.js) ===== */
+.confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    pointer-events: none;
+    font-size: 1.4rem;
+    will-change: transform, opacity;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+    .life-wall { gap: 26px 18px; padding: 30px 6% 20px; }
+
+    .size-s { --w: 128px; }
+    .size-m { --w: 158px; }
+    .size-l { --w: 186px; }
+
+    .p-cap { font-size: 1.18rem; }
+    .tape-track span { font-size: 0.85rem; }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    .tape { transform: none; }
+
+    .tape-track,
+    .p-float,
+    .sticker,
+    .p-slot,
+    .shuffle-btn.boing {
+        animation: none !important;
+    }
+}

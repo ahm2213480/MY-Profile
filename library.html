@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahmad Nofal | Library</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Ahmad Nofal's library — books and resources he keeps coming back to: Clean Code, The Pragmatic Programmer, CS50, MDN and more." />
+    <meta name="author" content="Ahmad Nofal" />
+    <meta name="theme-color" content="#0f0f1a" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ahmad Nofal | Library" />
+    <meta property="og:description" content="Books and resources Ahmad Nofal keeps coming back to — Clean Code, CS50, MDN and more." />
+    <meta property="og:image" content="assets/img/ahmad.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/effects.css" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body class="dark">
+    <script>
+        /* Apply saved theme before first paint to avoid flashing */
+        if (localStorage.getItem("pref-theme") === "light") document.body.classList.add("light");
+    </script>
+
+    <!-- TOP BAR -->
+    <header class="top-bar">
+        <nav class="nav">
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="projects.html" data-i18n="nav.projects">Projects</a>
+            <a href="library.html" class="active" data-i18n="nav.library">Library</a>
+            <a href="life.html" data-i18n="nav.life">My Life</a>
+        </nav>
+        <div class="toggles">
+            <button id="themeToggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+            <button id="langToggle">AR</button>
+        </div>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <h1 data-i18n="library.title">My Library</h1>
+        <p data-i18n="library.subtitle">Books and resources I keep coming back to.</p>
+        <div class="typing-line header-typing"><span class="typed-text" data-typed="library"></span><span class="type-cursor">|</span></div>
+    </section>
+
+    <!-- LIBRARY GRID -->
+    <section class="grid-section">
+        <div class="cards-grid">
+
+            
+
+            <article class="book-card reveal">
+                <div class="card-icon">📘</div>
+                <h3 data-i18n="lib2.title">The Pragmatic Programmer</h3>
+                <span class="book-meta">Hunt &amp; Thomas</span>
+                <p data-i18n="lib2.note">Practical wisdom for building real-world software.</p>
+                <div class="card-links">
+                    <a href="https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/" target="_blank" rel="noopener" class="btn small"><i class="fas fa-book-open"></i> <span data-i18n="card.read">Read</span></a>
+                </div>
+            </article>
+
+            <article class="book-card reveal">
+                <div class="card-icon">📗</div>
+                <h3 data-i18n="lib3.title">Grokking Algorithms</h3>
+                <span class="book-meta">Aditya Bhargava</span>
+                <p data-i18n="lib3.note">Algorithms explained with pictures, not pain.</p>
+                <div class="card-links">
+                    <a href="https://www.manning.com/books/grokking-algorithms" target="_blank" rel="noopener" class="btn small"><i class="fas fa-book-open"></i> <span data-i18n="card.read">Read</span></a>
+                </div>
+            </article>
+
+            <article class="book-card reveal">
+                <div class="card-icon">🎓</div>
+                <h3 data-i18n="lib4.title">CS50</h3>
+                <span class="book-meta">Harvard · edX</span>
+                <p data-i18n="lib4.note">Still the best introduction to computer science.</p>
+                <div class="card-links">
+                    <a href="https://cs50.harvard.edu/x/" target="_blank" rel="noopener" class="btn small"><i class="fas fa-book-open"></i> <span data-i18n="card.read">Read</span></a>
+                </div>
+            </article>
+
+            <article class="book-card reveal">
+                <div class="card-icon">🌍</div>
+                <h3 data-i18n="lib5.title">MDN Web Docs</h3>
+                <span class="book-meta">Mozilla</span>
+                <p data-i18n="lib5.note">The reference for everything on the web.</p>
+                <div class="card-links">
+                    <a href="https://developer.mozilla.org/en-US/" target="_blank" rel="noopener" class="btn small"><i class="fas fa-book-open"></i> <span data-i18n="card.read">Read</span></a>
+                </div>
+            </article>
+
+            <article class="book-card reveal">
+                <div class="card-icon">🧊</div>
+                <h3 data-i18n="lib6.title">Three.js Journey</h3>
+                <span class="book-meta">Bruno Simon</span>
+                <p data-i18n="lib6.note">3D for the web, learned the fun way.</p>
+                <div class="card-links">
+                    <a href="https://threejsjourney.com/" target="_blank" rel="noopener" class="btn small"><i class="fas fa-book-open"></i> <span data-i18n="card.read">Read</span></a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p data-i18n="footer.rights">© 2026 Ahmad Nofal</p>
+        <p data-i18n="footer.location">📍 Amman, Jordan</p>
+        <div class="social">
+            <a href="https://github.com/ahm2213480" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ahmad-nofal-21885a234/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:ahmadnofal550@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+962789682412" aria-label="Phone"><i class="fas fa-phone"></i></a>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
