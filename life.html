@@ -72,6 +72,7 @@
     <div class="shuffle-bar">
         <button id="shuffleBtn" class="shuffle-btn">🎲 <span data-i18n="life.shuffle">Shuffle the chaos</span></button>
         <span class="shuffle-hint" data-i18n="life.hint">Click any photo to zoom 👀</span>
+        <span class="mem-chip"><i class="fas fa-camera"></i><b id="memCount">22</b><span data-i18n="life.count">memories &amp; counting</span></span>
     </div>
 
     <!-- POLAROID WALL -->
@@ -311,6 +312,9 @@
     <!-- LIGHTBOX -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
         <button class="lb-close" aria-label="Close">&times;</button>
+        <span class="lb-count" id="lbCount"></span>
+        <button class="lb-nav lb-prev" aria-label="Previous photo">&#10094;</button>
+        <button class="lb-nav lb-next" aria-label="Next photo">&#10095;</button>
         <figure>
             <img id="lbImg" alt="" />
             <figcaption id="lbCap"></figcaption>

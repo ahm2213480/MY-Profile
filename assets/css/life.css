@@ -82,6 +82,23 @@
 
 .shuffle-hint { color: var(--muted); font-size: 0.95rem; }
 
+/* memory counter chip */
+.mem-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+    background: var(--accent-soft);
+    color: var(--text);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.mem-chip b { color: var(--accent-strong); font-size: 1rem; }
+.mem-chip i { color: var(--accent-strong); font-size: 0.85rem; }
+
 /* ===== POLAROID WALL ===== */
 .life-wall {
     position: relative;
@@ -91,6 +108,20 @@
     align-items: flex-start;
     gap: 34px 28px;
     padding: 44px 10% 30px;
+}
+
+/* pinboard backdrop: soft glows + faint dot grid (works on dark & light) */
+.life-wall::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(560px 380px at 18% 10%, rgba(124, 58, 237, 0.14), transparent 70%),
+        radial-gradient(640px 420px at 84% 80%, rgba(236, 72, 153, 0.10), transparent 70%),
+        radial-gradient(circle, rgba(124, 58, 237, 0.13) 1.2px, transparent 1.9px);
+    background-size: auto, auto, 26px 26px;
 }
 
 .p-slot {
@@ -130,50 +161,80 @@
     position: relative;
     width: var(--w, 200px);
     margin: 0;
-    padding: 10px 10px 6px;
-    background: #fdfdfa;
-    border-radius: 6px;
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+    padding: 10px 10px 8px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f8f2 100%);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), 0 18px 40px rgba(0, 0, 0, 0.35);
     transform: rotate(var(--tilt, 0deg));
     transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.44, 1), box-shadow 0.35s ease;
     cursor: zoom-in;
     outline: none;
 }
 
-/* washi tape pinning the photo to the wall */
+/* washi tape pinning the photo to the wall (striped, torn edges) */
 .polaroid::before {
     content: "";
     position: absolute;
-    top: -13px;
+    top: -14px;
     left: 50%;
-    width: 92px;
-    height: 26px;
-    background: rgba(252, 244, 186, 0.62);
+    width: 96px;
+    height: 27px;
+    background:
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.22) 0 7px, rgba(255, 255, 255, 0) 7px 14px),
+        linear-gradient(100deg, rgba(252, 244, 186, 0.62), rgba(243, 226, 141, 0.78));
+    clip-path: polygon(3% 10%, 98% 0%, 100% 90%, 1% 100%);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
     transform: translateX(-50%) rotate(var(--tape-rot, -3deg));
     z-index: 2;
+    transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.44, 1);
+}
+
+/* the tape peels back a little more on hover */
+.polaroid:hover::before,
+.polaroid:focus-visible::before {
+    transform: translateX(-50%) rotate(calc(var(--tape-rot, -3deg) * 1.9)) scaleY(1.05);
 }
 
 .polaroid:hover,
 .polaroid:focus-visible {
-    transform: rotate(0deg) translateY(-10px) scale(1.07);
-    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.5);
+    transform: rotate(0deg) translateY(-12px) scale(1.08);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25), 0 34px 70px rgba(0, 0, 0, 0.5), 0 0 42px rgba(124, 58, 237, 0.2);
 }
 
 .polaroid:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
+/* softer shadows in light mode */
+body.light .polaroid {
+    box-shadow: 0 2px 6px rgba(28, 28, 43, 0.12), 0 18px 40px rgba(28, 28, 43, 0.18);
+}
+
+body.light .polaroid:hover,
+body.light .polaroid:focus-visible {
+    box-shadow: 0 6px 14px rgba(28, 28, 43, 0.14), 0 34px 70px rgba(28, 28, 43, 0.24), 0 0 42px rgba(124, 58, 237, 0.18);
+}
+
 .p-img {
     display: block;
     width: 100%;
-    height: calc(var(--w, 200px) * 1.02);
+    height: calc(var(--w, 200px) * 1.06);
     object-fit: cover;
-    border-radius: 3px;
+    border-radius: 4px;
     background: #e8e8e0;
+    outline: 1px solid rgba(0, 0, 0, 0.08);
+    outline-offset: -1px;
+    filter: saturate(0.85) contrast(1.03) brightness(0.96);
+    transition: filter 0.45s ease;
+}
+
+/* the photo comes back to life on hover */
+.polaroid:hover .p-img,
+.polaroid:focus-visible .p-img {
+    filter: saturate(1.15) contrast(1.02) brightness(1.02);
 }
 
 /* handwritten caption (Caveat for Latin, Cairo takes over for Arabic) */
 .p-cap {
-    padding: 9px 2px 7px;
+    padding: 10px 4px 7px;
     text-align: center;
     line-height: 1.22;
     font-family: "Caveat", "Cairo", cursive;
@@ -189,8 +250,8 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
-    height: calc(var(--w, 200px) * 1.02);
-    border-radius: 3px;
+    height: calc(var(--w, 200px) * 1.06);
+    border-radius: 4px;
     background: repeating-linear-gradient(45deg, #f2f2ea, #f2f2ea 12px, #ececdf 12px, #ececdf 24px);
     color: #6a6a7a;
     font-size: 0.8rem;
@@ -220,12 +281,24 @@
     50%      { transform: translateY(-30px) rotate(11deg); }
 }
 
-/* ===== MORE NOTE ===== */
+/* ===== MORE NOTE (ghost polaroid slot) ===== */
 .more-note {
+    width: min(240px, 80%);
+    margin: 14px auto 70px;
+    padding: 30px 16px;
     text-align: center;
-    padding: 18px 10% 70px;
     color: var(--muted);
     font-size: 1.05rem;
+    border: 2px dashed rgba(124, 58, 237, 0.5);
+    border-radius: 10px;
+    background: var(--accent-soft);
+    transform: rotate(-1.6deg);
+    transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.44, 1), background 0.3s ease;
+}
+
+.more-note:hover {
+    transform: rotate(1.2deg) scale(1.04);
+    background: rgba(124, 58, 237, 0.12);
 }
 
 /* ===== LIGHTBOX ===== */
@@ -293,6 +366,47 @@
 
 .lb-close:hover { transform: rotate(90deg) scale(1.15); }
 
+/* prev / next navigation */
+.lb-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.09);
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.lb-nav:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: translateY(-50%) scale(1.12);
+}
+
+.lb-prev { inset-inline-start: 3vw; transform: translateY(-50%); }
+.lb-next { inset-inline-end: 3vw; transform: translateY(-50%); }
+
+/* photo counter pill */
+.lb-count {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
 /* ===== CONFETTI (spawned by life.js) ===== */
 .confetti {
     position: fixed;
@@ -314,6 +428,13 @@
 
     .p-cap { font-size: 1.18rem; }
     .tape-track span { font-size: 0.85rem; }
+
+    .mem-chip { padding: 8px 14px; font-size: 0.85rem; }
+
+    .lb-nav { width: 40px; height: 40px; font-size: 1.1rem; }
+    .lb-prev { inset-inline-start: 2vw; }
+    .lb-next { inset-inline-end: 2vw; }
+    .lb-count { font-size: 0.8rem; top: 14px; }
 }
 
 /* ===== REDUCED MOTION ===== */
