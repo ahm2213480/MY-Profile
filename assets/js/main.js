@@ -126,7 +126,10 @@ const I18N = {
         "life.c19": "Archive material",
         "life.c20": "Storage full, worth it",
         "life.c21": "Unsupervised content",
-        "life.c22": "Just me"
+        "life.c22": "Just me",
+        "life.c23": "Fresh out of the camera roll",
+        "life.c24": "Limited edition moment",
+        "life.c25": "The archive keeps growing"
     },
     ar: {
         // Nav
@@ -245,7 +248,10 @@ const I18N = {
         "life.c19": "مادة للأرشيف",
         "life.c20": "المساحة خلصت… وتستاهل",
         "life.c21": "محتوى بدون إشراف",
-        "life.c22": "أنا وبس"
+        "life.c22": "أنا وبس",
+        "life.c23": "طازة من رول الكاميرا",
+        "life.c24": "لحظة نسخة محدودة",
+        "life.c25": "الأرشيف عم يكبر"
     }
 };
 
