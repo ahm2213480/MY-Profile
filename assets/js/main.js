@@ -16,7 +16,7 @@ const I18N = {
         "nav.library": "Library",
         // Hero (index)
         "hero.title": "Hi, I’m Ahmad 👋",
-        "hero.subtitle": "CS graduate who loves building scalable web apps, simulations, and systems that make sense.",
+        "hero.subtitle": "CS graduate who loves building scalable web apps, data analysis, and systems that make sense.",
         "hero.projectsBtn": "View Projects",
         "hero.libraryBtn": "Explore Library",
         "hero.download": "Download CV",
@@ -25,7 +25,7 @@ const I18N = {
         "hero.badge3": "Amman, Jordan",
         // Interests
         "interests.title": "What I’m into",
-        "interests.card1": "🧪 Simulations",
+        "interests.card1": "📊 Data Analysis",
         "interests.card2": "🌐 Web Systems",
         "interests.card3": "🧠 Algorithms",
         // Stats
@@ -134,7 +134,7 @@ const I18N = {
         "nav.library": "المكتبة",
         // Hero (index)
         "hero.title": "مرحبًا، أنا أحمد 👋",
-        "hero.subtitle": "خريج علوم حاسوب، بحب بناء تطبيقات ويب قابلة للتوسع، والمحاكاة، والأنظمة اللي لها معنى.",
+        "hero.subtitle": "خريج علوم حاسوب، بحب بناء تطبيقات ويب قابلة للتوسع، وتحليل البيانات، والأنظمة اللي لها معنى.",
         "hero.projectsBtn": "المشاريع",
         "hero.libraryBtn": "المكتبة",
         "hero.download": "حمّل السيرة الذاتية",
@@ -143,7 +143,7 @@ const I18N = {
         "hero.badge3": "عمّان، الأردن",
         // Interests
         "interests.title": "اهتماماتي",
-        "interests.card1": "🧪 المحاكاة",
+        "interests.card1": "📊 تحليل البيانات",
         "interests.card2": "🌐 أنظمة الويب",
         "interests.card3": "🧠 الخوارزميات",
         // Stats
@@ -327,8 +327,8 @@ function initReveal() {
 /* ===== TYPING ANIMATION (works on every spot marked .typed-text) ===== */
 var TYPED_SETS = {
     roles: {
-        en: ["Full-Stack Developer", "Web Developer", "Simulation Builder", "Data Enthusiast"],
-        ar: ["مطور ويب فول ستاك", "مطور ويب", "باني أنظمة ومحاكاة", "شغوف بالبيانات"]
+        en: ["Full-Stack Developer", "Web Developer", "Data Analyst", "Data Enthusiast"],
+        ar: ["مطور ويب فول ستاك", "مطور ويب", "محلل بيانات", "شغوف بالبيانات"]
     },
     projects: {
         en: ["Blood Bank Systems", "C++ Simulations", "Web Apps & APIs", "Built with Vanilla JS"],
