@@ -79,6 +79,13 @@ const I18N = {
         "p2.desc": "A C++ clock simulator built on circular doubly linked lists, with Roman numeral display and AM/PM handling.",
         "p3.title": "Personal Portfolio",
         "p3.desc": "This website — designed and built from scratch with vanilla HTML, CSS, and JavaScript.",
+        "p4.title": "JobRadar — AI Job Matching Platform",
+        "p4.desc": "A full-stack job discovery platform that scores every opening from 0–100 against your CV — with skill-gap analysis, AI explanations, CV optimization, and application tracking.",
+        "p4.f1": "Explainable 0–100 match score for every job",
+        "p4.f2": "Skill-gap analysis — exactly what’s missing for each role",
+        "p4.f3": "CV optimization suggestions powered by Gemini AI",
+        "p4.f4": "Save jobs & track every application end-to-end",
+        "p4.f5": "AI-generated explanations for why each match fits",
         // Library page
         "library.title": "My Library",
         "library.subtitle": "Books and resources I keep coming back to.",
@@ -201,6 +208,13 @@ const I18N = {
         "p2.desc": "محاكاة ساعة بلغة C++ مبنية على قوائم مترابطة دائرية مزدوجة، مع عرض بالأرقام الرومانية ونظام AM/PM.",
         "p3.title": "الموقع الشخصي",
         "p3.desc": "هذا الموقع — مصمم ومبني من الصفر باستخدام HTML و CSS و JavaScript.",
+        "p4.title": "JobRadar — منصة مطابقة الوظائف بالذكاء الاصطناعي",
+        "p4.desc": "منصة متكاملة لاكتشاف الوظائف تقيّم كل وظيفة من 0 إلى 100 بناءً على سيرتك الذاتية — مع تحليل الفجوات المهارية، شروحات بالذكاء الاصطناعي، تحسين السيرة، وتتبع الطلبات.",
+        "p4.f1": "نظام مطابقة قابل للتفسير من 0 إلى 100 لكل وظيفة",
+        "p4.f2": "تحليل الفجوات المهارية — بالضبط شو ناقصك لكل وظيفة",
+        "p4.f3": "اقتراحات لتحسين السيرة الذاتية مدعومة بـ Gemini AI",
+        "p4.f4": "حفظ الوظائف وتتبع كل طلب من البداية للنهاية",
+        "p4.f5": "شروحات مولّدة بالذكاء الاصطناعي تبيّن سبب المطابقة",
         // Library page
         "library.title": "مكتبتي",
         "library.subtitle": "كتب ومصادر دايمًا برجع لها.",
@@ -339,8 +353,8 @@ var TYPED_SETS = {
         ar: ["مطور ويب فول ستاك", "مطور ويب", "محلل بيانات", "شغوف بالبيانات"]
     },
     projects: {
-        en: ["Blood Bank Systems", "C++ Simulations", "Web Apps & APIs", "Built with Vanilla JS"],
-        ar: ["نظام بنك الدم", "محاكاة بلغة C++", "تطبيقات ويب و APIs", "مبني بـ Vanilla JS"]
+        en: ["AI Job Matching", "Blood Bank Systems", "C++ Simulations", "Web Apps & APIs"],
+        ar: ["مطابقة الوظائف بالذكاء الاصطناعي", "نظام بنك الدم", "محاكاة بلغة C++", "تطبيقات ويب و APIs"]
     },
     library: {
         en: ["Books I keep coming back to", "Resources I actually use", "Always learning"],
